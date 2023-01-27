@@ -1,0 +1,14 @@
+{
+  "name": "node-trello",
+  "version": "1.0.0",
+  "description": "An asynchronous node module to interact with Trello API.",
+  "main": "trello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mattis",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.0.0"
+  }
+}
