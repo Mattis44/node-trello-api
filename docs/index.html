@@ -62,99 +62,33 @@
 
 
     <section class="readme usertext">
-        <article><p><img src="https://raw.githubusercontent.com/Mattis44/node-trello-api/main/trello-logo/Node-Trello-Logo.png" alt="Alt test"></p>
-<p>A fully asynchronous node module for trello api in CommonJS.</p>
-<p>/!\ =&gt; Report bugs on my Discord : <strong>Mattis#5249</strong></p>
-<h2>Usage</h2>
-<h3>Installation using NPM.</h3>
-<pre class="prettyprint source lang-bash"><code>npm i node-trello-api 
-</code></pre>
-<h3>Import and use</h3>
-<pre class="prettyprint source lang-js"><code>const trelloClient = require('node-trello-api')
-const Trello = new trelloClient(&quot;API_KEY&quot;, &quot;API_TOKEN&quot;)
-</code></pre>
-<h2>Exemples</h2>
-<pre class="prettyprint source lang-js"><code>Trello.getBoard(boardId).then(board => {
-console.log(board);
-});
-
-(async () => {
-	[...]
-    const res = await Trello.createBoardList(boardId, {name: &quot;My list&quot;})
-    resolve(res)
-})
-</code></pre>
-<h2>Documentation summary</h2>
+        <article><h1>VERSION 1.1 (28/01/2023)</h1>
+<blockquote>
 <ul>
-<li><a href="https://mattis44.github.io/node-trello-api/#actions" title="Actions">Actions</a></li>
-<li><a href="https://mattis44.github.io/node-trello-api/#applications" title="Applications">Applications</a></li>
-<li><a href="https://mattis44.github.io/node-trello-api/#boards" title="Boards">Boards</a></li>
-<li><a href="https://mattis44.github.io/node-trello-api/#cards" title="Cards">Cards</a></li>
-<li><a href="https://mattis44.github.io/node-trello-api/#customFields" title="CustomFields">CustomFields</a></li>
-<li><a href="https://mattis44.github.io/node-trello-api/#emojis" title="Emojis">Emojis</a></li>
-<li><a href="https://mattis44.github.io/node-trello-api/#labels" title="Labels">Labels</a></li>
-<li><a href="https://mattis44.github.io/node-trello-api/#lists" title="Lists">Lists</a></li>
-<li><a href="https://mattis44.github.io/node-trello-api/#members" title="Members">Members</a></li>
-<li><a href="https://mattis44.github.io/node-trello-api/#plugins" title="Plugins">Plugins</a></li>
-<li><a href="https://mattis44.github.io/node-trello-api/#search" title="Search">Search</a></li>
-<li><a href="https://mattis44.github.io/node-trello-api/#tokens" title="Tokens">Tokens</a></li>
-<li><a href="https://mattis44.github.io/node-trello-api/#webhooks" title="Webhooks">Webhooks</a></li>
+<li>Adding a brand new documentation website to help you find all you need to work with the Trello API
+https://mattis44.github.io/node-trello-api/</li>
 </ul>
-<h2>Documentation</h2>
-<p>Official repository documentation : https://mattis44.github.io/node-trello-api/</p>
-<h3>Actions</h3>
-<p>Used to request the actions of a board, a card, a checklist, a list, a member, or an organization.</p>
-<p>Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-actions/</p>
-<h3>Applications</h3>
-<p>Used to request the applications of a member.</p>
-<p>Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-applications/</p>
-<h3>Batch</h3>
-<p>Used to request multiple resources in a single request.</p>
-<p>Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-batch/</p>
-<h3>Boards</h3>
-<p>Used to request the boards of a member.</p>
-<p>Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-boards/</p>
-<h3>Cards</h3>
-<p>Used to request the cards of a board, a checklist, a list, or a member.</p>
-<p>Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-cards/</p>
-<h3>Checklists</h3>
-<p>Used to request the checklists of a board, a card, or a member.</p>
-<p>Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-checklists/</p>
-<h3>CustomFields</h3>
-<p>Used to request the custom fields of a board, a card, a checklist, a list, a member, or an organization.</p>
-<p>Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-customfields/</p>
-<h3>Emojis</h3>
-<p>Used to request the emojis of a board, a card, a checklist, a list, a member, or an organization.</p>
-<p>Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-emojis/</p>
-<h3>Enterprises</h3>
-<p>Used to request the enterprises of a member.</p>
-<p>Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-enterprises/</p>
-<h3>Labels</h3>
-<p>Used to request the labels of a board, a card, a checklist, a list, a member, or an organization.</p>
-<p>Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-labels/</p>
-<h3>Lists</h3>
-<p>Used to request the lists of a board, a card, a checklist, a member, or an organization.</p>
-<p>Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-lists/</p>
-<h3>Members</h3>
-<p>Used to request the members of a board, a card, a checklist, a list, or an organization.</p>
-<p>Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-members/</p>
-<h3>Notifications</h3>
-<p>Used to request the notifications of a board, a card, a checklist, a list, a member, or an organization.</p>
-<p>Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-notifications/</p>
-<h3>Plugins</h3>
-<p>Used to request the plugins of a board, a card, a checklist, a list, a member, or an organization.</p>
-<p>Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-plugins/</p>
-<h3>Search</h3>
-<p>Used to request the search of a board, a card, a checklist, a list, a member, or an organization.</p>
-<p>Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-search/</p>
-<h3>Tokens</h3>
-<p>Used to request the tokens of a member.</p>
-<p>Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-tokens/</p>
-<h3>Webhooks</h3>
-<p>Used to request the webhooks of a board, a card, a checklist, a list, a member, or an organization.</p>
-<p>Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-webhooks/</p>
-<h2>Working on !</h2>
-<p>Organizations' methods are missing.</p></article>
+</blockquote>
+<blockquote>
+<ul>
+<li>Added a new version of readme to add this website.</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Added a full JSDOC on all functions.</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Added a CHANGELOG file.</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Fixed problem with Batch showed as a Constructor.</li>
+</ul>
+</blockquote></article>
     </section>
 
 
@@ -169,7 +103,7 @@ console.log(board);
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.0</a> on Sat Jan 28 2023 19:17:31 GMT+0100 (heure normale d’Europe centrale) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.0</a> on Sat Jan 28 2023 19:26:08 GMT+0100 (heure normale d’Europe centrale) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
