@@ -2,6 +2,8 @@
 ## NODE-TRELLO-API
 A fully asynchronous node module for trello api in CommonJS.
 
+Report bugs on my Discord : Mattis#5249
+
 ## Usage
 ### Installation using NPM.
 `npm i node-trello-api`
