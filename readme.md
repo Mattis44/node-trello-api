@@ -2,6 +2,8 @@
 ## NODE-TRELLO-API
 A fully asynchronous node module for trello api in CommonJS.
 
+![Alt test](https://raw.githubusercontent.com/Mattis44/node-trello-api/main/trello-logo/Node-Trello-Logo.png)
+
 Report bugs on my Discord : Mattis#5249
 
 ## Usage
