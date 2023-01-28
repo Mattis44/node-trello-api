@@ -1,7 +1,7 @@
 {
-  "name": "node-trello",
-  "version": "1.0.0",
-  "description": "An asynchronous node module to interact with Trello API.",
+  "name": "node-trello-api",
+  "version": "1.0.1",
+  "description": "A fully asynchronous node module to interact with Trello API with CommonJS.",
   "main": "trello.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
