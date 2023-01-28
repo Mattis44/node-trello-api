@@ -7,7 +7,7 @@
     "recurse": true
   },
   "source": {
-    "include": ["./", "README.md", "./api"],
+    "include": ["./", "README.md"],
     "includePattern": ".+\\.js(doc|x)?$",
     "excludePattern": "node_modules"
   },
