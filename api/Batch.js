@@ -10,7 +10,6 @@ const BASE_URL = 'https://api.trello.com/1/batch';
  * @memberOf Trello
  * @param urls
  * @returns {Promise<*>}
- * @constructor
  */
 Trello.prototype.Batch = async function (urls) {
     const url = `${BASE_URL}?urls=${urls}&key=${this.key}&token=${this.token}`;

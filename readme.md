@@ -1,10 +1,9 @@
-
-## NODE-TRELLO-API
-A fully asynchronous node module for trello api in CommonJS.
-
 ![Alt test](https://raw.githubusercontent.com/Mattis44/node-trello-api/main/trello-logo/Node-Trello-Logo.png)
 
-Report bugs on my Discord : Mattis#5249
+A fully asynchronous node module for trello api in CommonJS.
+
+
+/!\ => Report bugs on my Discord : **Mattis#5249**
 
 ## Usage
 ### Installation using NPM.
@@ -46,162 +45,107 @@ console.log(board);
 
 
 ## Documentation
+
+Official repository documentation : https://mattis44.github.io/node-trello-api/
 ### Actions
-**Methods**
-> getAction(**idAction**, **options**) :
-Options : {display, entities, fields, member, member_fields, memberCreator, memberCreator_field}
 
-> updateAction(**idAction**, **text**)
-
-> deleteAction(**idAction**)
-
-> getActionSpecifiedField(**idAction**, **field**)
+Used to request the actions of a board, a card, a checklist, a list, a member, or an organization.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-actions/
 
 ### Applications
-**Methods**
-> getApplicationdata(**applicationId**)
+
+Used to request the applications of a member.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-applications/
 
 ### Batch
-**Methods**
->Batch(**urls**)
+
+Used to request multiple resources in a single request.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-batch/
 
 ### Boards
-**Methods**
-> getBoardMembership(**boardId**)
 
->getBoard (**boardId**)
-
->updateBoard(**boardId**, **options**) :
-Options : {name, desc, descData, closed, subscribed, idOrganization, prefs_permissionLevel, prefs_voting, prefs_comments, prefs_invitations, prefs_selfJoin, prefs_cardCovers, prefs_background, prefs_cardAging, prefs_calendarFeedEnabled, labelNames_green/yellow/orange/red/purple/blue}
-
->deleteBoard(**boardId**)
-
->getBoardField(**boardId**, **field**)
-
->getBoardActions(**boardId**, **options**) :
-Options : {filter}
-
->getBoardCard(**boardId**, **idCard**)
-
->getBoardboardStars(**boardId**, **options**)
-
->getBoardChecklists(**boardId**)
-
->getBoardCards(**boardId**)
-
->getBoardCustomFields(**boardId**)
-
->getBoardLabels(**boardId**, **options**) :
-Options : {fields, limit}
-
->createBoardLabel(**boardId**, **options**) :
-Options : {name, color}
-
->getBoardLists(**boardId**, **options**) :
-Options : {filter, fields, limit, cards, card_fields}
-
->createBoardList(**boardId**, **options**) :
-Options : {name, pos}
-
->getBoardFilteredLists(**boardId**, **filter** )
-
->getBoardMembers(**boardId**)
-
->inviteMemberEmailToBoard(**boardId**, **email**, **options**) :
-Options : {type, fullName}
-
->addBoardMember(**boardId**, **memberId**, **type**, **options**) :
-Options : {allowBillableGuest}
-
->removeBoardMember(**boardId**, **memberId**)
-
->updateBoardMembership(**boardId**, **membershipId**, **type**, **options**) :
-Options : {member_fields}
-
->updateBoardEmailPositionPref(**boardId**, **value**)
-
->updateBoardIdEmailListPref(**boardId**, **value**)
-
->updateBoardShowListGuidePref(**boardId**, **value**)
-
->updateBoardShowSidebarPref(**boardId**, **value**)
-
->updateBoardShowSidebarActivityPref(**boardId**, **value**)
-
->updateBoardShowSidebarBoardActionsPref(**boardId**, **value**)
-
->updateBoardShowSidebarMembersPref(**boardId**, **value**)
+Used to request the boards of a member.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-boards/
 
 ### Cards
-**Methods**
+
+Used to request the cards of a board, a checklist, a list, or a member.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-cards/
 
 ### Checklists
-**Methods**
+
+Used to request the checklists of a board, a card, or a member.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-checklists/
 
 ### CustomFields
-**Methods**
+
+Used to request the custom fields of a board, a card, a checklist, a list, a member, or an organization.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-customfields/
 
 ### Emojis
-**Methods**
+
+Used to request the emojis of a board, a card, a checklist, a list, a member, or an organization.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-emojis/
 
 ### Enterprises
-**Methods**
+
+Used to request the enterprises of a member.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-enterprises/
 
 ### Labels
-**Methods**
+
+Used to request the labels of a board, a card, a checklist, a list, a member, or an organization.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-labels/
 
 ### Lists
-**Methods**
+
+Used to request the lists of a board, a card, a checklist, a member, or an organization.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-lists/
 
 ### Members
-**Methods**
+
+Used to request the members of a board, a card, a checklist, a list, or an organization.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-members/
 
 ### Notifications
-**Methods**
+
+Used to request the notifications of a board, a card, a checklist, a list, a member, or an organization.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-notifications/
 
 ### Plugins
-**Methods**
+
+Used to request the plugins of a board, a card, a checklist, a list, a member, or an organization.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-plugins/
 
 ### Search
-**Methods**
+
+Used to request the search of a board, a card, a checklist, a list, a member, or an organization.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-search/
 
 ### Tokens
-**Methods**
+
+Used to request the tokens of a member.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-tokens/
 
 ### Webhooks
-**Methods**
+
+Used to request the webhooks of a board, a card, a checklist, a list, a member, or an organization.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-webhooks/
 
