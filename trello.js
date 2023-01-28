@@ -1,5 +1,18 @@
+/**
+ * A class representating the Trello API.
+ * @class
+ * @classdesc A class for making requests to the Trello API.
+ * @param {string} key - The API key for your Trello account.
+ * @param {string} token - The API token for your Trello account.
+ */
 class Trello {
 
+    /**
+     * Create an instance of Trello
+     * @constructor
+     * @param {string} key
+     * @param {string} token
+     */
     constructor(key, token) {
         this.key = key;
         this.token = token;

@@ -3,6 +3,15 @@ const Trello = require('../trello');
 const BASE_URL = 'https://api.trello.com/1/actions';
 
 
+/**
+ * Get an action by ID.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idAction - The ID of the action.
+ * @param {Object} options - The options for the request.
+ * @returns {promise<*>}
+ */
 Trello.prototype.getAction = async function (idAction, options) {
     const Defaults = {
         display: '',
@@ -25,12 +34,30 @@ Trello.prototype.getAction = async function (idAction, options) {
         return json;
 }
 
+/**
+ * Update an action by ID.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idAction
+ * @param {string} text
+ * @returns {Promise<*>}
+ */
 Trello.prototype.updateAction = async function (idAction, text) {
     const url = `${BASE_URL}/${idAction}?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'PUT', headers: this.headers}, body = JSON.stringify({text: text}))
     const json = await response.json();
     return json;
 }
+
+/**
+ * Delete an action by ID.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idAction
+ * @returns {Promise<*>}
+ */
 
 Trello.prototype.deleteAction = async function (idAction) {
     const url = `${BASE_URL}/${idAction}?key=${this.key}&token=${this.token}`;
@@ -39,6 +66,15 @@ Trello.prototype.deleteAction = async function (idAction) {
     return json;
 }
 
+/**
+ * Get the action's board for a specified field.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idAction
+ * @param {string} field
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getActionSpecifiedField = async function (idAction, field) {
     const url = `${BASE_URL}/${idAction}/${field}?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'GET', headers: this.headers})
@@ -46,6 +82,15 @@ Trello.prototype.getActionSpecifiedField = async function (idAction, field) {
     return json;
 }
 
+/**
+ * Get the action's board.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idAction
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getActionBoard = async function (idAction, options) {
     const Default = {
         fields: '',
@@ -62,6 +107,15 @@ Trello.prototype.getActionBoard = async function (idAction, options) {
         return json;
 }
 
+/**
+ * Get the action's card.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idAction
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getActionCard = async function (idAction, options) {
     const Default = {
         fields: '',
@@ -78,6 +132,15 @@ Trello.prototype.getActionCard = async function (idAction, options) {
         return json;
 }
 
+/**
+ * Get the action's List.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idAction
+ * @param {Object} options
+ * @returns {Promise<Object>}
+ */
 Trello.prototype.getActionList = async function (idAction, options) {
     const Default = {
         fields: '',
@@ -94,6 +157,15 @@ Trello.prototype.getActionList = async function (idAction, options) {
         return json;
 }
 
+/**
+ * Get the action's member.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idAction
+ * @param {Object}options
+ * @returns {Promise<Object>}
+ */
 Trello.prototype.getActionMember = async function (idAction, options) {
     const Default = {
         fields: '',
@@ -110,6 +182,15 @@ Trello.prototype.getActionMember = async function (idAction, options) {
         return json;
 }
 
+/**
+ * Get the action's member creator.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idAction
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getActionMemberCreator = async function (idAction, options) {
     const Default = {
         fields: '',
@@ -126,6 +207,15 @@ Trello.prototype.getActionMemberCreator = async function (idAction, options) {
         return json;
 }
 
+/**
+ * Get the action's organization.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idAction
+ * @param {object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getActionOrganization = async function (idAction, options) {
     const Default = {
         fields: '',
@@ -142,6 +232,15 @@ Trello.prototype.getActionOrganization = async function (idAction, options) {
         return json;
 }
 
+/**
+ * Update the action's comment.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idAction
+ * @param {string} value
+ * @returns {Promise<*>}
+ */
 Trello.prototype.updateActionComment = async function (idAction, value) {
     const url = `${BASE_URL}/${idAction}/comments?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'PUT', headers: this.headers}, body = JSON.stringify({value: value}))
@@ -149,6 +248,15 @@ Trello.prototype.updateActionComment = async function (idAction, value) {
     return json;
 }
 
+/**
+ * Get the action's reactions.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idAction
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getActionReactions = async function (idAction, options) {
     const Default = {
         fields: '',
@@ -165,6 +273,15 @@ Trello.prototype.getActionReactions = async function (idAction, options) {
         return json;
 }
 
+/**
+ * Create a reaction on the action.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idAction
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.createActionReaction = async function (idAction, options) {
     const Default = {
         shortName: '',
@@ -184,6 +301,16 @@ Trello.prototype.createActionReaction = async function (idAction, options) {
         return json;
 }
 
+/**
+ * Get the action's reaction by Id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idAction
+ * @param {string} idReaction
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getActionReactionsId = async function (idAction, idReaction, options) {
     const Defaults = {
         member: '',
@@ -201,6 +328,16 @@ Trello.prototype.getActionReactionsId = async function (idAction, idReaction, op
         return json;
 }
 
+
+/**
+ * Delete the action's reaction by Id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idAction
+ * @param {string} idReaction
+ * @returns {Promise<*>}
+ */
 Trello.prototype.deleteActionReactionsId = async function (idAction, idReaction) {
     const url = `${BASE_URL}/${idAction}/reactions/${idReaction}?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'DELETE', headers: this.headers})
@@ -208,6 +345,14 @@ Trello.prototype.deleteActionReactionsId = async function (idAction, idReaction)
     return json;
 }
 
+/**
+ * Get the action's reaction summary.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idAction
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getActionSummaryReactions = async function (idAction) {
     const url = `${BASE_URL}/${idAction}/reactionsSummary?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'GET', headers: this.headers})

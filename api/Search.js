@@ -2,6 +2,16 @@ const Trello = require("../trello");
 const fetch = require("node-fetch");
 const BASE_URL = "https://api.trello.com/1/search";
 
+
+/**
+ * Search Trello
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param query
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.searchTrello = async function (query, options) {
     const Defaults = {
         modelTypes: '',
@@ -44,6 +54,15 @@ Trello.prototype.searchTrello = async function (query, options) {
         return json;
 }
 
+/**
+ * Search Members
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param query
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.searchMembers = async function (query, options) {
     const Defaults = {
         limit: '',

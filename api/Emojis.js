@@ -3,6 +3,14 @@ const Trello = require('../trello');
 const BASE_URL = 'https://api.trello.com/1/emojis';
 
 
+/**
+ * Get emojis
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getEmojis = async function (options) {
     const Defaults = {
         locale: '',

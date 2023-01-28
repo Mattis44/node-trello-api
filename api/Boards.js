@@ -2,6 +2,15 @@ const fetch = require('node-fetch');
 const Trello = require('../trello');
 const BASE_URL = 'https://api.trello.com/1/boards';
 
+
+/**
+ * Get Board Membership by id Board.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getBoardMembership = async function (boardId) {
     const url = `${BASE_URL}/${boardId}/memberships?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'GET', headers: this.headers});
@@ -9,6 +18,14 @@ Trello.prototype.getBoardMembership = async function (boardId) {
     return json;
 }
 
+/**
+ * Get Board by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getBoard = async function (boardId) {
     const url = `${BASE_URL}/${boardId}?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'GET', headers: this.headers});
@@ -16,6 +33,15 @@ Trello.prototype.getBoard = async function (boardId) {
     return json;
 }
 
+/**
+ * Update Board by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.updateBoard = async function (boardId, options) {
     const defaults = {
         name: '',
@@ -52,6 +78,14 @@ Trello.prototype.updateBoard = async function (boardId, options) {
     return json;
 }
 
+/**
+ * Delete Board by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @returns {Promise<*>}
+ */
 Trello.prototype.deleteBoard = async function (boardId) {
     const url = `${BASE_URL}/${boardId}?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'DELETE', headers: this.headers});
@@ -59,6 +93,15 @@ Trello.prototype.deleteBoard = async function (boardId) {
     return json;
 }
 
+/**
+ * Get Board Field by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {string} field
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getBoardField = async function (boardId, field) {
     const url = `${BASE_URL}/${boardId}/${field}?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'GET', headers: this.headers});
@@ -66,6 +109,15 @@ Trello.prototype.getBoardField = async function (boardId, field) {
     return json;
 }
 
+/**
+ * Get Board Actions by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getBoardActions = async function (boardId, options) {
     const defaults = {
         filter: '',
@@ -82,6 +134,15 @@ Trello.prototype.getBoardActions = async function (boardId, options) {
     }
 }
 
+/**
+ * Get Board Cards by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {string} idCard
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getBoardCard = async function (boardId, idCard) {
     const url = `${BASE_URL}/${boardId}/cards/${idCard}?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'GET', headers: this.headers});
@@ -89,6 +150,15 @@ Trello.prototype.getBoardCard = async function (boardId, idCard) {
     return json;
 }
 
+/**
+ * Get Board stars of a board by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {string} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getBoardboardStars = async function (boardId, options) {
     const defaults = {
         filter: ''
@@ -105,6 +175,14 @@ Trello.prototype.getBoardboardStars = async function (boardId, options) {
     return json;
 }
 
+/**
+ * Get Board Checklists by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getBoardChecklists = async function (boardId) {
     const url = `${BASE_URL}/${boardId}/checklists?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'GET', headers: this.headers});
@@ -112,6 +190,14 @@ Trello.prototype.getBoardChecklists = async function (boardId) {
     return json;
 }
 
+/**
+ * Get Card of a Board by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getBoardCards = async function (boardId) {
     const url = `${BASE_URL}/${boardId}/cards?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'GET', headers: this.headers});
@@ -119,6 +205,15 @@ Trello.prototype.getBoardCards = async function (boardId) {
     return json;
 }
 
+/**
+ * Get Filtered Cards of a Board by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {string} filter
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getBoardFilteredCards = async function (boardId, filter) {
     const url = `${BASE_URL}/${boardId}/cards/${filter}?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'GET', headers: this.headers});
@@ -126,6 +221,14 @@ Trello.prototype.getBoardFilteredCards = async function (boardId, filter) {
     return json;
 }
 
+/**
+ * Get Board Custom Fields by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getBoardCustomFields = async function (boardId) {
     const url = `${BASE_URL}/${boardId}/customFields?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'GET', headers: this.headers});
@@ -133,6 +236,15 @@ Trello.prototype.getBoardCustomFields = async function (boardId) {
     return json;
 }
 
+/**
+ * Get Labels of a Board by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getBoardLabels = async function (boardId, options) {
     const defaults = {
         fields: '',
@@ -150,6 +262,15 @@ Trello.prototype.getBoardLabels = async function (boardId, options) {
     return json;
 }
 
+/**
+ * Create a Label for a Board by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.createBoardLabel = async function (boardId, options) {
     const defaults = {
         name: '',
@@ -167,6 +288,15 @@ Trello.prototype.createBoardLabel = async function (boardId, options) {
     return json;
 }
 
+/**
+ * Get Lists of a Board by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getBoardLists = async function (boardId, options) {
     const defaults = {
         filter: '',
@@ -187,6 +317,15 @@ Trello.prototype.getBoardLists = async function (boardId, options) {
     return json;
 }
 
+/**
+ * Create a List for a Board by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.createBoardList = async function (boardId, options) {
     const defaults = {
         name: '',
@@ -204,6 +343,15 @@ Trello.prototype.createBoardList = async function (boardId, options) {
     return json;
 }
 
+/**
+ * Get Filtered Lists of a Board by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {string} filter
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getBoardFilteredLists = async function (boardId, filter) {
     const url = `${BASE_URL}/${boardId}/lists/${filter}?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'GET', headers: this.headers});
@@ -211,6 +359,14 @@ Trello.prototype.getBoardFilteredLists = async function (boardId, filter) {
     return json;
 }
 
+/**
+ * Get Members of a Board by id.
+ * @async
+ * @function
+ * @memberOf {string} Trello
+ * @param {string} boardId
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getBoardMembers = async function (boardId) {
     const url = `${BASE_URL}/${boardId}/members?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'GET', headers: this.headers});
@@ -218,6 +374,16 @@ Trello.prototype.getBoardMembers = async function (boardId) {
     return json;
 }
 
+/**
+ * Invite a Member to a Board by his email.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {string} email
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.inviteMemberEmailToBoard = async function (boardId, email, options) {
     const defaults = {
         type: '',
@@ -235,6 +401,17 @@ Trello.prototype.inviteMemberEmailToBoard = async function (boardId, email, opti
     return json;
 }
 
+/**
+ * Add a member to a board by his id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {string} memberId
+ * @param {string} type
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.addBoardMember = async function (boardId, memberId, type, options) {
     const defaults = {
         allowBillableGuest: null,
@@ -251,6 +428,15 @@ Trello.prototype.addBoardMember = async function (boardId, memberId, type, optio
     return json;
 }
 
+/**
+ * Remove a member from a board by his id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {string} memberId
+ * @returns {Promise<*>}
+ */
 Trello.prototype.removeBoardMember = async function (boardId, memberId) {
     const url = `${BASE_URL}/${boardId}/members/${memberId}?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'DELETE', headers: this.headers});
@@ -258,6 +444,17 @@ Trello.prototype.removeBoardMember = async function (boardId, memberId) {
     return json;
 }
 
+/**
+ * Update the Membership of a Member on a Board.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {string} membershipId
+ * @param {string} type
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.updateBoardMembership = async function (boardId, membershipId, type, options) {
     const defaults = {
         member_fields: '',
@@ -274,6 +471,15 @@ Trello.prototype.updateBoardMembership = async function (boardId, membershipId, 
     return json;
 }
 
+/**
+ * Update the board email position preference.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {string} value
+ * @returns {Promise<*>}
+ */
 Trello.prototype.updateBoardEmailPositionPref = async function (boardId, value) {
     const url = `${BASE_URL}/${boardId}/emailPosition?key=${this.key}&token=${this.token}&value=${value}`;
     const response = await fetch(url, {method: 'PUT', headers: this.headers});
@@ -281,6 +487,15 @@ Trello.prototype.updateBoardEmailPositionPref = async function (boardId, value) 
     return json;
 }
 
+/**
+ * Update the board id email list preference.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {string} value
+ * @returns {Promise<*>}
+ */
 Trello.prototype.updateBoardIdEmailListPref = async function (boardId, value) {
     const url = `${BASE_URL}/${boardId}/idEmailList?key=${this.key}&token=${this.token}&value=${value}`;
     const response = await fetch(url, {method: 'PUT', headers: this.headers});
@@ -288,6 +503,15 @@ Trello.prototype.updateBoardIdEmailListPref = async function (boardId, value) {
     return json;
 }
 
+/**
+ * Update the board show list guide preference.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {string} value
+ * @returns {Promise<*>}
+ */
 Trello.prototype.updateBoardShowListGuidePref = async function (boardId, value) {
     const url = `${BASE_URL}/${boardId}/showListGuide?key=${this.key}&token=${this.token}&value=${value}`;
     const response = await fetch(url, {method: 'PUT', headers: this.headers});
@@ -295,6 +519,15 @@ Trello.prototype.updateBoardShowListGuidePref = async function (boardId, value) 
     return json;
 }
 
+/**
+ * Update the board show sidebar preference.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {string} value
+ * @returns {Promise<*>}
+ */
 Trello.prototype.updateBoardShowSidebarPref = async function (boardId, value) {
     const url = `${BASE_URL}/${boardId}/showSidebar?key=${this.key}&token=${this.token}&value=${value}`;
     const response = await fetch(url, {method: 'PUT', headers: this.headers});
@@ -302,6 +535,15 @@ Trello.prototype.updateBoardShowSidebarPref = async function (boardId, value) {
     return json;
 }
 
+/**
+ * Update the board show sidebar activity preference.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {string} value
+ * @returns {Promise<*>}
+ */
 Trello.prototype.updateBoardShowSidebarActivityPref = async function (boardId, value) {
     const url = `${BASE_URL}/${boardId}/showSidebarActivity?key=${this.key}&token=${this.token}&value=${value}`;
     const response = await fetch(url, {method: 'PUT', headers: this.headers});
@@ -309,6 +551,15 @@ Trello.prototype.updateBoardShowSidebarActivityPref = async function (boardId, v
     return json;
 }
 
+/**
+ * Update the board show sidebar board actions preference.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {string} value
+ * @returns {Promise<*>}
+ */
 Trello.prototype.updateBoardShowSidebarBoardActionsPref = async function (boardId, value) {
     const url = `${BASE_URL}/${boardId}/showSidebarBoardActions?key=${this.key}&token=${this.token}&value=${value}`;
     const response = await fetch(url, {method: 'PUT', headers: this.headers});
@@ -316,6 +567,15 @@ Trello.prototype.updateBoardShowSidebarBoardActionsPref = async function (boardI
     return json;
 }
 
+/**
+ * Update the board show sidebar board members preference.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {string} value
+ * @returns {Promise<*>}
+ */
 Trello.prototype.updateBoardShowSidebarMembersPref = async function (boardId, value) {
     const url = `${BASE_URL}/${boardId}/showSidebarMembers?key=${this.key}&token=${this.token}&value=${value}`;
     const response = await fetch(url, {method: 'PUT', headers: this.headers});
@@ -323,6 +583,15 @@ Trello.prototype.updateBoardShowSidebarMembersPref = async function (boardId, va
     return json;
 }
 
+/**
+ * Create a Board
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} name
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.createBoard = async function (name, options) {
     const defaults = {
         desc: '',
@@ -351,6 +620,14 @@ Trello.prototype.createBoard = async function (name, options) {
     return json;
 }
 
+/**
+ * Create a Board Calendar Key
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @returns {Promise<*>}
+ */
 Trello.prototype.createBoardCalendarKey = async function (boardId) {
     const url = `${BASE_URL}/${boardId}/calendarKey?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'POST', headers: this.headers});
@@ -358,6 +635,14 @@ Trello.prototype.createBoardCalendarKey = async function (boardId) {
     return json;
 }
 
+/**
+ * Create a Board Email Key
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @returns {Promise<*>}
+ */
 Trello.prototype.createBoardEmailKey = async function (boardId) {
     const url = `${BASE_URL}/${boardId}/emailKey?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'POST', headers: this.headers});
@@ -365,6 +650,16 @@ Trello.prototype.createBoardEmailKey = async function (boardId) {
     return json;
 }
 
+
+/**
+ * Create a board tag
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {string} value
+ * @returns {Promise<*>}
+ */
 Trello.prototype.createBoardTag = async function (boardId, value) {
     const url = `${BASE_URL}/${boardId}/tags?key=${this.key}&token=${this.token}&value=${value}`;
     const response = await fetch(url, {method: 'POST', headers: this.headers});
@@ -372,6 +667,14 @@ Trello.prototype.createBoardTag = async function (boardId, value) {
     return json;
 }
 
+/**
+ * Mark a board as viewed
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @returns {Promise<*>}
+ */
 Trello.prototype.markBoardAsViewed = async function (boardId) {
     const url = `${BASE_URL}/${boardId}/markAsViewed?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'POST', headers: this.headers});
@@ -379,6 +682,14 @@ Trello.prototype.markBoardAsViewed = async function (boardId) {
     return json;
 }
 
+/**
+ * get Board enabled PowerUps
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getBoardEnabledPowerUps = async function (boardId) {
     const url = `${BASE_URL}/${boardId}/boardPlugins?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'GET', headers: this.headers});
@@ -386,6 +697,15 @@ Trello.prototype.getBoardEnabledPowerUps = async function (boardId) {
     return json;
 }
 
+/**
+ * get Board PowerUps
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} boardId
+ * @param {Object} options
+ * @returns {Promise<*>}
+ */
 Trello.prototype.getBoardPowerUps = async function (boardId, options) {
     const defaults = {
         filter: '',
