@@ -1,4 +1,4 @@
-![Alt test](https://raw.githubusercontent.com/Mattis44/node-trello-api/main/trello-logo/Node-Trello-Logo.png)
+![Alt test](https://raw.githubusercontent.com/Mattis44/node-trello-api/gh-page/trello-logo/Node-Trello-Logo.png)
 
 A fully asynchronous node module for trello api in CommonJS.
 
