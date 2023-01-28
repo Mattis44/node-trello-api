@@ -1,25 +1,27 @@
 {
   "name": "node-trello-api",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A fully asynchronous node module to interact with Trello API with CommonJS.",
   "main": "trello.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "jsdoc -d docs --configure jsdocConf.json"
   },
   "author": "Mattis",
   "license": "ISC",
   "dependencies": {
+    "docdash": "^2.0.1",
     "node-fetch": "^2.0.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Mattis44/node-trello-api"
   },
-    "keywords": [
-        "trello",
-        "api",
-        "node",
-        "nodejs",
-        "commonjs"
-    ]
+  "keywords": [
+    "trello",
+    "api",
+    "node",
+    "nodejs",
+    "commonjs"
+  ]
 }
