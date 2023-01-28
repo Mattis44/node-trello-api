@@ -6,32 +6,41 @@ Report bugs on my Discord : Mattis#5249
 
 ## Usage
 ### Installation using NPM.
-`npm i node-trello-api`
+```bash
+npm i node-trello-api 
+```
 ### Import and use
   ```js
  const trelloClient = require('node-trello-api')
  const Trello = new trelloClient("API_KEY", "API_TOKEN")
 ```
-## Exemple
+## Exemples
 ```js
 Trello.getBoard(boardId).then(board => {
 console.log(board);
 });
+
+(async () => {
+	[...]
+    const res = await Trello.createBoardList(boardId, {name: "My list"})
+    resolve(res)
+})
 ```
+
 ## Documentation summary
-- [Actions](https://mattis44.github.io/node-trello-api/#Actions "Actions")
-- [Applications](https://mattis44.github.io/node-trello-api/#Applications "Applications")
-- [Boards](https://mattis44.github.io/node-trello-api/#Boards "Boards")
-- [Cards](https://mattis44.github.io/node-trello-api/#Cards "Cards")
-- [CustomFields](https://mattis44.github.io/node-trello-api/#CustomFields "CustomFields")
-- [Emojis](https://mattis44.github.io/node-trello-api/#Emojis "Emojis")
-- [Labels](https://mattis44.github.io/node-trello-api/#Labels "Labels")
-- [Lists](https://mattis44.github.io/node-trello-api/#Lists "Lists")
-- [Members](https://mattis44.github.io/node-trello-api/#Members "Members")
-- [Plugins](https://mattis44.github.io/node-trello-api/#Plugins "Plugins")
-- [Search](https://mattis44.github.io/node-trello-api/#Search "Search")
-- [Tokens](https://mattis44.github.io/node-trello-api/#Tokens "Tokens")
-- [Webhooks](https://mattis44.github.io/node-trello-api/#Webhooks "Webhooks")
+- [Actions](https://mattis44.github.io/node-trello-api/#actions "Actions")
+- [Applications](https://mattis44.github.io/node-trello-api/#applications "Applications")
+- [Boards](https://mattis44.github.io/node-trello-api/#boards "Boards")
+- [Cards](https://mattis44.github.io/node-trello-api/#cards "Cards")
+- [CustomFields](https://mattis44.github.io/node-trello-api/#customFields "CustomFields")
+- [Emojis](https://mattis44.github.io/node-trello-api/#emojis "Emojis")
+- [Labels](https://mattis44.github.io/node-trello-api/#labels "Labels")
+- [Lists](https://mattis44.github.io/node-trello-api/#lists "Lists")
+- [Members](https://mattis44.github.io/node-trello-api/#members "Members")
+- [Plugins](https://mattis44.github.io/node-trello-api/#plugins "Plugins")
+- [Search](https://mattis44.github.io/node-trello-api/#search "Search")
+- [Tokens](https://mattis44.github.io/node-trello-api/#tokens "Tokens")
+- [Webhooks](https://mattis44.github.io/node-trello-api/#webhooks "Webhooks")
 
 
 ## Documentation
@@ -134,6 +143,11 @@ Official documentation API : https://developer.atlassian.com/cloud/trello/rest/a
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-cards/
 
+### Checklists
+**Methods**
+
+Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-checklists/
+
 ### CustomFields
 **Methods**
 
@@ -143,6 +157,11 @@ Official documentation API : https://developer.atlassian.com/cloud/trello/rest/a
 **Methods**
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-emojis/
+
+### Enterprises
+**Methods**
+
+Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-enterprises/
 
 ### Labels
 **Methods**
@@ -158,6 +177,11 @@ Official documentation API : https://developer.atlassian.com/cloud/trello/rest/a
 **Methods**
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-members/
+
+### Notifications
+**Methods**
+
+Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-notifications/
 
 ### Plugins
 **Methods**
@@ -179,5 +203,5 @@ Official documentation API : https://developer.atlassian.com/cloud/trello/rest/a
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-webhooks/
 
-## TO-DO LIST
-`Checklists, Enterprises, Notification, Organizations`.
+## Working on !
+Organizations' methods are missing.
