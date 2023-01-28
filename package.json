@@ -14,5 +14,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Mattis44/node-trello-api"
-  }
+  },
+    "keywords": [
+        "trello",
+        "api",
+        "node",
+        "nodejs",
+        "commonjs"
+    ]
 }
