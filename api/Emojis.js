@@ -14,8 +14,8 @@ Trello.prototype.getEmojis = async function (options) {
         if (options[key] !== '') {
             url += `&${key}=${options[key]}`;
         }
+    }
         const response = await fetch(url, {method: 'GET', headers: this.headers}, body = JSON.stringify(options))
         const json = await response.json();
         return json;
-    }
 }

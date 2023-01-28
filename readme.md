@@ -1,7 +1,20 @@
-##TO DO
 
-`Actions, Cards, Checklists, CustomFields, Enterprises, Labels, Lists, Members, Notification, Organizations, Plugins, Tokens, Webhooks`.
+## NODE-TRELLO-API
+A fully asynchronous node module for trello api in CommonJS.
 
-Full Documentation on Github.io
+## Usage
+### Installation using NPM.
+`npm i node-trello-api`
+### Import and use
+  ```js
+  const trelloClient = require('node-trello-api')
+ const Trello = new trelloClient("API_KEY", "API_TOKEN")
+```
 
-Upload on npm.
+## Documentation
+
+See the full documentation on ...
+
+
+## TO-DO LIST
+`Checklists, Enterprises, Notification, Organizations`.
