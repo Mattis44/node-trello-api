@@ -29,19 +29,19 @@ console.log(board);
 ```
 
 ## Documentation summary
-- [Actions](https://mattis44.github.io/node-trello-api/#actions "Actions")
-- [Applications](https://mattis44.github.io/node-trello-api/#applications "Applications")
-- [Boards](https://mattis44.github.io/node-trello-api/#boards "Boards")
-- [Cards](https://mattis44.github.io/node-trello-api/#cards "Cards")
-- [CustomFields](https://mattis44.github.io/node-trello-api/#customFields "CustomFields")
-- [Emojis](https://mattis44.github.io/node-trello-api/#emojis "Emojis")
-- [Labels](https://mattis44.github.io/node-trello-api/#labels "Labels")
-- [Lists](https://mattis44.github.io/node-trello-api/#lists "Lists")
-- [Members](https://mattis44.github.io/node-trello-api/#members "Members")
-- [Plugins](https://mattis44.github.io/node-trello-api/#plugins "Plugins")
-- [Search](https://mattis44.github.io/node-trello-api/#search "Search")
-- [Tokens](https://mattis44.github.io/node-trello-api/#tokens "Tokens")
-- [Webhooks](https://mattis44.github.io/node-trello-api/#webhooks "Webhooks")
+- [Actions](https://www.npmjs.com/package/node-trello-api#actions "Actions")
+- [Applications](https://www.npmjs.com/package/node-trello-api#applications "Applications")
+- [Boards](https://www.npmjs.com/package/node-trello-api#boards "Boards")
+- [Cards](https://www.npmjs.com/package/node-trello-api#cards "Cards")
+- [CustomFields](https://www.npmjs.com/package/node-trello-api#customFields "CustomFields")
+- [Emojis](https://www.npmjs.com/package/node-trello-api#emojis "Emojis")
+- [Labels](https://www.npmjs.com/package/node-trello-api#labels "Labels")
+- [Lists](https://www.npmjs.com/package/node-trello-api#lists "Lists")
+- [Members](https://www.npmjs.com/package/node-trello-api#members "Members")
+- [Plugins](https://www.npmjs.com/package/node-trello-api#plugins "Plugins")
+- [Search](https://www.npmjs.com/package/node-trello-api#search "Search")
+- [Tokens](https://www.npmjs.com/package/node-trello-api#tokens "Tokens")
+- [Webhooks](https://www.npmjs.com/package/node-trello-api#webhooks "Webhooks")
 
 
 ## Documentation
@@ -148,6 +148,3 @@ Official documentation API : https://developer.atlassian.com/cloud/trello/rest/a
 Used to request the webhooks of a board, a card, a checklist, a list, a member, or an organization.
 
 Official documentation API : https://developer.atlassian.com/cloud/trello/rest/api-group-webhooks/
-
-## Working on !
-Organizations' methods are missing.

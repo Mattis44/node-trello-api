@@ -9,7 +9,7 @@ const BASE_URL = "https://api.trello.com/1/lists";
  * @function
  * @memberOf Trello
  * @param {string} idList
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getList = async function (idList, options) {
@@ -34,7 +34,7 @@ Trello.prototype.getList = async function (idList, options) {
  * @function
  * @memberOf Trello
  * @param {string} idList
- * @param {Object} options
+ * @param {Object} options - {name, closed, idBoard, pos, subscribed}
  * @returns {Promise<*>}
  */
 Trello.prototype.updateList = async function (idList, options) {
@@ -57,6 +57,32 @@ Trello.prototype.updateList = async function (idList, options) {
     return json;
 }
 
+/**
+ * Create a list on a board.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} name
+ * @param {string} idBoard
+ * @param {Object} options - {idListSource, pos}
+ * @returns {Promise<*>}
+ */
+Trello.prototype.CreateList = async function (name, idBoard, options) {
+    const Defaults = {
+        idListSource: '',
+        pos: '',
+    }
+    let url = `${BASE_URL}?key=${this.key}&token=${this.token}`;
+    options = Object.assign({}, Defaults, options);
+    for (let key in options) {
+        if (options[key] !== '') {
+            url += `&${key}=${options[key]}`;
+        }
+    }
+    const response = await fetch(url, {method: 'POST', headers: this.headers})
+    const json = await response.json();
+    return json;
+}
 /**
  * Archive card of a list by id.
  * @async
@@ -95,7 +121,7 @@ Trello.prototype.moveListCards = async function (idList, idList2, idBoard) {
  * @function
  * @memberOf Trello
  * @param {string} idList
- * @param {Object} options
+ * @param {Object} options - {value}
  * @returns {Promise<*>}
  */
 Trello.prototype.archiveOrUnarchiveList = async function (idList, options) {
@@ -137,7 +163,7 @@ Trello.prototype.moveListToBoard = async function (idList, idBoard) {
  * @memberOf Trello
  * @param {string} idList
  * @param {string} field
- * @param {Object} options
+ * @param {Object} options - {value}
  * @returns {Promise<*>}
  */
 Trello.prototype.updateListFields = async function (idList, field, options) {
@@ -162,7 +188,7 @@ Trello.prototype.updateListFields = async function (idList, field, options) {
  * @function
  * @memberOf Trello
  * @param {string} idList
- * @param {Object} options
+ * @param {Object} options - {filter}
  * @returns {Promise<*>}
  */
 Trello.prototype.getListActions = async function (idList, options) {
@@ -187,7 +213,7 @@ Trello.prototype.getListActions = async function (idList, options) {
  * @function
  * @memberOf Trello
  * @param {string} idList
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getListBoard = async function (idList, options) {

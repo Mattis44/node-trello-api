@@ -8,7 +8,7 @@ const BASE_URL = "https://api.trello.com/1/members";
  * @function
  * @memberOf Trello
  * @param {string} idMember
- * @param {Object} options
+ * @param {Object} options - {actions, boards, boardBackgrounds, boardsInvited, boardsInvited_fields, boardStars, cards, customBoardBackgrounds, customEmoji, customStickers, fields, notifications, organizations, organization_fields, organization_paid_account, organizationInvited, organizationInvited_fields, paid_account, savedSearches, tokens}
  * @returns {Promise<*>}
  */
 Trello.prototype.getMember = async function (idMember, options) {
@@ -52,7 +52,7 @@ Trello.prototype.getMember = async function (idMember, options) {
  * @function
  * @memberOf Trello
  * @param {string} idMember
- * @param {Object} options
+ * @param {Object} options - {fullName, bio, initials, username, avatarSource, prefs_colorBlind, prefs_locale, prefs_minutesBetweenSummaries}
  * @returns {Promise<*>}
  */
 Trello.prototype.updateMember = async function (idMember, options) {
@@ -62,9 +62,9 @@ Trello.prototype.updateMember = async function (idMember, options) {
         initials: '',
         username: '',
         avatarSource: '',
-        prefs_colorBlind: '',
-        prefs_locale: '',
-        prefs_minutesBetweenSummaries: '',
+        "prefs/colorBlind": '',
+        "prefs/locale": '',
+        "prefs/minutesBetweenSummaries": '',
     }
     let url = `${BASE_URL}/${idMember}?key=${this.key}&token=${this.token}`;
     options = Object.assign({}, Defaults, options);
@@ -100,7 +100,7 @@ Trello.prototype.getMemberField = async function (idMember, field) {
  * @function
  * @memberOf Trello
  * @param {string} idMember
- * @param {Object} options
+ * @param {Object} options - {filter}
  * @returns {Promise<*>}
  */
 Trello.prototype.getMemberActions = async function (idMember, options) {
@@ -125,14 +125,14 @@ Trello.prototype.getMemberActions = async function (idMember, options) {
  * @function
  * @memberOf Trello
  * @param {string} idMember
- * @param {Object} options
+ * @param {Object} options - {filter}
  * @returns {Promise<*>}
  */
 Trello.prototype.getMemberCustomBoardBackgrounds = async function (idMember, options) {
     const Defaults = {
         filter: '',
     }
-    let url = `${BASE_URL}/${idMember}/customBoardBackgrounds?key=${this.key}&token=${this.token}`;
+    let url = `${BASE_URL}/${idMember}/boardBackgrounds?key=${this.key}&token=${this.token}`;
     options = Object.assign({}, Defaults, options);
     for (let key in options) {
         if (options[key] !== '') {
@@ -154,7 +154,7 @@ Trello.prototype.getMemberCustomBoardBackgrounds = async function (idMember, opt
  * @returns {Promise<*>}
  */
 Trello.prototype.uploadMemberNewBoardBackground = async function (idMember, file) {
-    let url = `${BASE_URL}/${idMember}/customBoardBackgrounds?key=${this.key}&token=${this.token}`;
+    let url = `${BASE_URL}/${idMember}/boardBackgrounds?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'POST', headers: this.headers, body: file})
     const json = await response.json();
     return json;
@@ -167,14 +167,14 @@ Trello.prototype.uploadMemberNewBoardBackground = async function (idMember, file
  * @memberOf Trello
  * @param {string} idMember
  * @param {string} idBoardBackground
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getMemberBoardBackground = async function (idMember, idBoardBackground, options) {
     const Defaults = {
         fields: '',
     }
-    let url = `${BASE_URL}/${idMember}/customBoardBackgrounds/${idBoardBackground}?key=${this.key}&token=${this.token}`;
+    let url = `${BASE_URL}/${idMember}/BoardBackgrounds/${idBoardBackground}?key=${this.key}&token=${this.token}`;
     options = Object.assign({}, Defaults, options);
     for (let key in options) {
         if (options[key] !== '') {
@@ -193,7 +193,7 @@ Trello.prototype.getMemberBoardBackground = async function (idMember, idBoardBac
  * @memberOf Trello
  * @param {string} idMember
  * @param {string} idBoardBackground
- * @param {Object} options
+ * @param {Object} options - {brightness, tile}
  * @returns {Promise<*>}
  */
 Trello.prototype.uploadMemberCustomBoardBackground = async function (idMember, idBoardBackground, options) {
@@ -201,7 +201,7 @@ Trello.prototype.uploadMemberCustomBoardBackground = async function (idMember, i
         brightness: '',
         tile: '',
     }
-    let url = `${BASE_URL}/${idMember}/customBoardBackgrounds/${idBoardBackground}?key=${this.key}&token=${this.token}`;
+    let url = `${BASE_URL}/${idMember}/boardBackgrounds/${idBoardBackground}?key=${this.key}&token=${this.token}`;
     options = Object.assign({}, Defaults, options);
     for (let key in options) {
         if (options[key] !== '') {
@@ -223,7 +223,7 @@ Trello.prototype.uploadMemberCustomBoardBackground = async function (idMember, i
  * @returns {Promise<*>}
  */
 Trello.prototype.deleteMemberCustomBoardBackground = async function (idMember, idBoardBackground) {
-    let url = `${BASE_URL}/${idMember}/customBoardBackgrounds/${idBoardBackground}?key=${this.key}&token=${this.token}`;
+    let url = `${BASE_URL}/${idMember}/boardBackgrounds/${idBoardBackground}?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'DELETE', headers: this.headers})
     const json = await response.json();
     return json;
@@ -284,7 +284,7 @@ Trello.prototype.getMemberBoardStar = async function (idMember, idStar) {
  * @memberOf Trello
  * @param {string} idMember
  * @param {string} idStar
- * @param {Object} options
+ * @param {Object} options - {pos}
  * @returns {Promise<*>}
  */
 Trello.prototype.updateMemberBoardStarPosition = async function (idMember, idStar, options) {
@@ -325,7 +325,7 @@ Trello.prototype.deleteBoardStar = async function (idMember, idStar) {
  * @function
  * @memberOf Trello
  * @param {string}idMember
- * @param {Object} options
+ * @param {Object} options - {filter, fields, lists, organization, organization_fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getMemberBoards = async function (idMember, options) {
@@ -354,7 +354,7 @@ Trello.prototype.getMemberBoards = async function (idMember, options) {
  * @function
  * @memberOf Trello
  * @param {string} idMember
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getMemberBoardsInvited = async function (idMember, options) {
@@ -379,7 +379,7 @@ Trello.prototype.getMemberBoardsInvited = async function (idMember, options) {
  * @function
  * @memberOf Trello
  * @param {string} idMember
- * @param {Object} options
+ * @param {Object} options - {filter}
  * @returns {Promise<*>}
  */
 Trello.prototype.getMemberCard = async function (idMember, options) {
@@ -452,7 +452,7 @@ Trello.prototype.getCustomBoardBackgroundMember = async function (idMember, idBo
  * @memberOf Trello
  * @param {string} idMember
  * @param {string} idBoardBackground
- * @param {Object} options
+ * @param {Object} options - {tile, brightness}
  * @returns {Promise<*>}
  */
 Trello.prototype.updateCustomBoardBackgroundMember = async function (idMember, idBoardBackground, options) {
@@ -527,7 +527,7 @@ Trello.prototype.createMemberNewCustomEmoji = async function (idMember, file, na
  * @memberOf Trello
  * @param {string} idMember
  * @param {string} idEmoji
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getCustomEmojiMember = async function (idMember, idEmoji, options) {
@@ -553,7 +553,7 @@ Trello.prototype.getCustomEmojiMember = async function (idMember, idEmoji, optio
  * @memberOf Trello
  * @param {string} idMember
  * @param {string} idEmoji
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getCustomEmojiMembers = async function (idMember, idEmoji, options) {
@@ -610,7 +610,7 @@ Trello.prototype.createMemberCustomSticker = async function (idMember, file) {
  * @memberOf Trello
  * @param {string} idMember
  * @param {string} idSticker
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getMemberCustomSticker = async function (idMember, idSticker, options) {
@@ -651,7 +651,7 @@ Trello.prototype.deleteMemberCustomSticker = async function (idMember, idSticker
  * @function
  * @memberOf Trello
  * @param {string} idMember
- * @param {Object} options
+ * @param {Object} options - {entities, display, filter, read_filter, fields, limit, page, before, since, memberCreator, memberCreator_fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getMemberNotifications = async function (idMember, options) {
@@ -686,7 +686,7 @@ Trello.prototype.getMemberNotifications = async function (idMember, options) {
  * @function
  * @memberOf Trello
  * @param {string} idMember
- * @param {Object} options
+ * @param {Object} options - {filter, fields, paid_account}
  * @returns {Promise<*>}
  */
 Trello.prototype.getMemberOrganizations = async function (idMember, options) {
@@ -713,7 +713,7 @@ Trello.prototype.getMemberOrganizations = async function (idMember, options) {
  * @function
  * @memberOf Trello
  * @param {string} idMember
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getMemberOrganizationsInvited = async function (idMember, options) {
@@ -788,7 +788,7 @@ Trello.prototype.getMemberSavedSearch = async function (idMember, idSearch) {
  * @memberOf Trello
  * @param {string} idMember
  * @param {string} idSearch
- * @param {Object} options
+ * @param {Object} options - {name, query, pos}
  * @returns {Promise<*>}
  */
 Trello.prototype.updateMemberSavedSearch = async function (idMember, idSearch, options) {
@@ -831,7 +831,7 @@ Trello.prototype.deleteMemberSavedSearch = async function (idMember, idSearch) {
  * @function
  * @memberOf Trello
  * @param {string} idMember
- * @param {Object} options
+ * @param {Object} options - {webhooks}
  * @returns {Promise<*>}
  */
 Trello.prototype.getMemberTokens = async function (idMember, options) {

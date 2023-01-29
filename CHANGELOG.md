@@ -1,3 +1,15 @@
+# VERSION 1.2 (29/01/2023)
+
+> - Added Organization API methods.
+
+> - Fixed all links bugs.
+
+> - Added JSDOC for all Organization API methods.
+
+> - Removed useless files for NPM.
+
+> - Added options documentation for all methods.
+
 # VERSION 1.1 (28/01/2023)
 
 > - Adding a brand new documentation website to help you find all you need to work with the Trello API

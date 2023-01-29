@@ -8,7 +8,7 @@ const BASE_URL = 'https://api.trello.com/1/notifications';
  * @function
  * @memberOf Trello
  * @param {string} idNotification
- * @param {Object} options
+ * @param {Object} options - {board, board_fields, card, card_fields, display, entities, fields, list, member, member_fields, memberCreator, memberCreator_fields, organization, organization_fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getNotification = async function (idNotification, options) {
@@ -46,7 +46,7 @@ Trello.prototype.getNotification = async function (idNotification, options) {
  * @function
  * @memberOf Trello
  * @param {string} idNotification
- * @param {Object} options
+ * @param {Object} options - {unread}
  * @returns {Promise<*>}
  */
 Trello.prototype.updateNotificationReadStatus = async function (idNotification, options) {
@@ -86,7 +86,7 @@ Trello.prototype.getNotificationField = async function (idNotification, field) {
  * @async
  * @function
  * @memberOf Trello
- * @param {string} options
+ * @param {string} options - {read, ids}
  * @returns {Promise<*>}
  */
 Trello.prototype.markAllNotificationsAsRead = async function (options) {
@@ -112,7 +112,7 @@ Trello.prototype.markAllNotificationsAsRead = async function (options) {
  * @function
  * @memberOf Trello
  * @param id
- * @param options
+ * @param options - {value}
  * @returns {Promise<*>}
  */
 Trello.prototype.updateNotificationsReadStatus = async function (id, options){
@@ -137,7 +137,7 @@ Trello.prototype.updateNotificationsReadStatus = async function (id, options){
  * @function
  * @memberOf Trello
  * @param {string} idNotification
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getNotificationBoard = async function (idNotification, options) {
@@ -162,7 +162,7 @@ Trello.prototype.getNotificationBoard = async function (idNotification, options)
  * @function
  * @memberOf Trello
  * @param {string} idNotification
- * @param {string} options
+ * @param {string} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getNotificationCard = async function (idNotification, options) {
@@ -187,7 +187,7 @@ Trello.prototype.getNotificationCard = async function (idNotification, options) 
  * @function
  * @memberOf Trello
  * @param {string} idNotification
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getNotificationList = async function (idNotification, options) {
@@ -212,7 +212,7 @@ Trello.prototype.getNotificationList = async function (idNotification, options) 
  * @function
  * @memberOf Trello
  * @param {string} idNotification
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getNotificationMember = async function (idNotification, options) {
@@ -237,7 +237,7 @@ const Defaults = {
  * @function
  * @memberOf Trello
  * @param {string} idNotification
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getNotificationMemberCreator = async function (idNotification, options) {
@@ -262,7 +262,7 @@ Trello.prototype.getNotificationMemberCreator = async function (idNotification, 
  * @function
  * @memberOf Trello
  * @param {string} idNotification
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getNotificationOrganization = async function (idNotification, options) {

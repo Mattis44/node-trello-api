@@ -8,7 +8,7 @@ const BASE_URL = "https://api.trello.com/1/search";
  * @async
  * @function
  * @memberOf Trello
- * @param query
+ * @param {string} query
  * @param {Object} options
  * @returns {Promise<*>}
  */
@@ -49,7 +49,7 @@ Trello.prototype.searchTrello = async function (query, options) {
             url += `&${key}=${options[key]}`;
         }
     }
-        const response = await fetch(url, {method: 'GET', headers: this.headers}, body = JSON.stringify(options))
+        const response = await fetch(url, {method: 'GET', headers: this.headers})
         const json = await response.json();
         return json;
 }
@@ -59,8 +59,8 @@ Trello.prototype.searchTrello = async function (query, options) {
  * @async
  * @function
  * @memberOf Trello
- * @param query
- * @param {Object} options
+ * @param {string} query
+ * @param {Object} options - {limit, idBoard, idOrganizations, onlyOrgMembers}
  * @returns {Promise<*>}
  */
 Trello.prototype.searchMembers = async function (query, options) {
@@ -70,14 +70,14 @@ Trello.prototype.searchMembers = async function (query, options) {
         idOrganizations: '',
         onlyOrgMembers: '',
     }
-    let url = `${BASE_URL}/members?query=${query}&key=${this.key}&token=${this.token}`;
+    let url = `${BASE_URL}/members/?query=${query}&key=${this.key}&token=${this.token}`;
     options = Object.assign({}, Defaults, options);
     for (let key in options) {
         if (options[key] !== '') {
             url += `&${key}=${options[key]}`;
         }
     }
-        const response = await fetch(url, {method: 'GET', headers: this.headers}, body = JSON.stringify(options))
+        const response = await fetch(url, {method: 'GET', headers: this.headers})
         const json = await response.json();
         return json;
 }

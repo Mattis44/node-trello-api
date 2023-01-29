@@ -12,13 +12,13 @@ const BASE_URL = "https://api.trello.com/1/customFields";
  * @param {string} name
  * @param {string} type
  * @param {string} pos
- * @param {Object} options
+ * @param {Object} options - {options, display/cardFront}
  * @returns {Promise<*>}
  */
 Trello.prototype.createCustomField = async function (idModel, modelType, name, type, pos, options) {
     const Defaults = {
         options: '',
-        display_cardFront: '',
+        "display/cardFront": '',
     }
     let url = `${BASE_URL}?key=${this.key}&token=${this.token}`;
     options = Object.assign({}, Defaults, options);
@@ -53,14 +53,14 @@ Trello.prototype.getCustomField = async function (idCustomField) {
  * @function
  * @memberOf Trello
  * @param {string} idCustomField
- * @param {Object} options
+ * @param {Object} options - {name, pos, display/cardFront}
  * @returns {Promise<*>}
  */
 Trello.prototype.updateCustomField = async function (idCustomField, options) {
     const Defaults = {
         name: '',
         pos: '',
-        display_cardFront: '',
+        "displaycard/Front": '',
     }
     let url = `${BASE_URL}/${idCustomField}?key=${this.key}&token=${this.token}`;
     options = Object.assign({}, Defaults, options);

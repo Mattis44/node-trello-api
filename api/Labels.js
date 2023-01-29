@@ -9,7 +9,7 @@ const BASE_URL = "https://api.trello.com/1/labels";
  * @function
  * @memberOf Trello
  * @param {string} idLabel
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getLabel = async function (idLabel, options) {
@@ -34,7 +34,7 @@ Trello.prototype.getLabel = async function (idLabel, options) {
  * @function
  * @memberOf Trello
  * @param {string} idLabel
- * @param {Object} options
+ * @param {Object} options - {color, name}
  * @returns {Promise<*>}
  */
 Trello.prototype.updateLabel = async function (idLabel, options) {
@@ -81,7 +81,7 @@ Trello.prototype.deleteLabel = async function (idLabel) {
  */
 Trello.prototype.updateLabelField = async function (idLabel, field, value) {
     const url = `${BASE_URL}/${idLabel}/${field}?key=${this.key}&token=${this.token}`;
-    const response = await fetch(url, {method: 'PUT', headers: this.headers}, body = JSON.stringify({value: value}))
+    const response = await fetch(url, {method: 'PUT', headers: this.headers})
     const json = await response.json();
     return json;
 }

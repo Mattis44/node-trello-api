@@ -8,7 +8,7 @@ const BASE_URL = "https://api.trello.com/1/cards";
  * @function
  * @memberOf Trello
  * @param {string} idList
- * @param {Object} options
+ * @param {Object} options - {name, desc, pos, due, start, dueComplete, idList, idMembers, idLabels, urlSource, fileSource, mimeType, idCardSource, keepFromSource, address, locationName, coordinates}
  * @returns {Promise<*>}
  */
 Trello.prototype.createCard = async function (idList, options) {
@@ -38,7 +38,7 @@ Trello.prototype.createCard = async function (idList, options) {
             url += `&${key}=${options[key]}`;
         }
     }
-    const response = await fetch(url, {method: 'POST', headers: this.headers}, body = JSON.stringify(options))
+    const response = await fetch(url, {method: 'POST', headers: this.headers})
     const json = await response.json();
     return json;
 }
@@ -50,7 +50,7 @@ Trello.prototype.createCard = async function (idList, options) {
  * @function
  * @memberOf Trello
  * @param {string} idCard
- * @param {Object} options
+ * @param {Object} options - {fields, actions, attachments, attachment_fields, members, member_fields, membersVoted, memberVoted_fields, checkItemStates, checklists, checklist_fields, list, pluginData, stickers, sticker_fields, customFieldItems}
  * @returns {Promise<*>}
  */
 Trello.prototype.getCard = async function (idCard, options) {
@@ -90,7 +90,7 @@ Trello.prototype.getCard = async function (idCard, options) {
  * @function
  * @memberOf Trello
  * @param {string} idCard
- * @param {Object} options
+ * @param {Object} options - {name, desc, pos, due, start, dueComplete, subscribed, address, locationName, coordinates, cover}
  * @returns {Promise<*>}
  */
 Trello.prototype.updateCard = async function (idCard, options) {
@@ -156,7 +156,7 @@ Trello.prototype.getCardField = async function (idCard, field) {
  * @function
  * @memberOf Trello
  * @param {string} idCard
- * @param {Object} options
+ * @param {Object} options - {filter, page}
  * @returns {Promise<*>}
  */
 Trello.prototype.getCardActions = async function (idCard, options) {
@@ -182,7 +182,7 @@ Trello.prototype.getCardActions = async function (idCard, options) {
  * @function
  * @memberOf Trello
  * @param {string} idCard
- * @param {Object} options
+ * @param {Object} options - {fields, filter}
  * @returns {Promise<*>}
  */
 Trello.prototype.getCardAttachments = async function (idCard, options) {
@@ -208,7 +208,7 @@ Trello.prototype.getCardAttachments = async function (idCard, options) {
  * @function
  * @memberOf Trello
  * @param {string} idCard
- * @param {Object} options
+ * @param {Object} options - {name, mimeType, file, setCover, url}
  * @returns {Promise<*>}
  */
 Trello.prototype.createCardAttachment = async function (idCard, options) {
@@ -238,7 +238,7 @@ Trello.prototype.createCardAttachment = async function (idCard, options) {
  * @memberOf Trello
  * @param {string} idCard
  * @param {string} idAttachment
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getCardAttachment = async function (idCard, idAttachment, options) {
@@ -279,7 +279,7 @@ Trello.prototype.deleteCardAttachment = async function (idCard, idAttachment) {
  * @function
  * @memberOf Trello
  * @param {string} idCard
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getCardBoard = async function (idCard, options) {
@@ -304,7 +304,7 @@ Trello.prototype.getCardBoard = async function (idCard, options) {
  * @function
  * @memberOf Trello
  * @param {string} idCard
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getCardCheckItems = async function (idCard, options) {
@@ -329,7 +329,7 @@ Trello.prototype.getCardCheckItems = async function (idCard, options) {
  * @function
  * @memberOf Trello
  * @param {string} idCard
- * @param {Object} options
+ * @param {Object} options - {checkItems, checkItem_fields, filter, fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getCardChecklists = async function (idCard, options) {
@@ -357,7 +357,7 @@ Trello.prototype.getCardChecklists = async function (idCard, options) {
  * @function
  * @memberOf Trello
  * @param {string} idCard
- * @param {Object} options
+ * @param {Object} options - {name, idChecklistSource, pos}
  * @returns {Promise<*>}
  */
 Trello.prototype.createCardChecklist = async function (idCard, options) {
@@ -385,7 +385,7 @@ Trello.prototype.createCardChecklist = async function (idCard, options) {
  * @memberOf Trello
  * @param {string} idCard
  * @param {string} idCheckItem
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getCardCheckItem = async function (idCard, idCheckItem, options) {
@@ -411,7 +411,7 @@ Trello.prototype.getCardCheckItem = async function (idCard, idCheckItem, options
  * @memberOf Trello
  * @param {string} idCard
  * @param {string} idCheckItem
- * @param {Object} options
+ * @param {Object} options - {name, pos, state}
  * @returns {Promise<*>}
  */
 Trello.prototype.updateCardCheckItem = async function (idCard, idCheckItem, options) {
@@ -454,7 +454,7 @@ Trello.prototype.deleteCardCheckItem = async function (idCard, idCheckItem) {
  * @function
  * @memberOf Trello
  * @param {string} idCard
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getCardList = async function (idCard, options) {
@@ -479,7 +479,7 @@ Trello.prototype.getCardList = async function (idCard, options) {
  * @function
  * @memberOf Trello
  * @param {string} idCard
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getCardMembers = async function (idCard, options) {
@@ -504,7 +504,7 @@ Trello.prototype.getCardMembers = async function (idCard, options) {
  * @function
  * @memberOf Trello
  * @param {string} idCard
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getMembersVotedOnACard = async function (idCard, options) {
@@ -559,7 +559,7 @@ Trello.prototype.getCardPluginData = async function (idCard) {
  * @function
  * @memberOf Trello
  * @param {string} idCard
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getCardStickers = async function (idCard, options) {
@@ -588,7 +588,7 @@ Trello.prototype.getCardStickers = async function (idCard, options) {
  * @param top
  * @param left
  * @param zIndex
- * @param {Object} options
+ * @param {Object} options - {rotate}
  * @returns {Promise<*>}
  */
 Trello.prototype.addCardSticker = async function (idCard, image, top, left, zIndex, options) {
@@ -614,7 +614,7 @@ Trello.prototype.addCardSticker = async function (idCard, image, top, left, zInd
  * @memberOf Trello
  * @param {string} idCard
  * @param {string} idSticker
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getCardSticker = async function (idCard, idSticker, options) {
@@ -634,6 +634,52 @@ Trello.prototype.getCardSticker = async function (idCard, idSticker, options) {
 }
 
 /**
+ * Update card sticker by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idCard
+ * @param {string} idSticker
+ * @param image
+ * @param top
+ * @param left
+ * @param zIndex
+ * @param {Object} options - {rotate}
+ * @returns {Promise<*>}
+ */
+Trello.prototype.updateCardSticker = async function (idCard, idSticker, image, top, left, zIndex, options) {
+    const Defaults = {
+        rotate: '',
+    }
+    let url = `${BASE_URL}/${idCard}/stickers/${idSticker}?key=${this.key}&token=${this.token}&image=${image}&top=${top}&left=${left}&zIndex=${zIndex}`;
+    options = Object.assign({}, Defaults, options);
+    for (let key in options) {
+        if (options[key] !== '') {
+            url += `&${key}=${options[key]}`;
+        }
+    }
+    const response = await fetch(url, {method: 'PUT', headers: this.headers})
+    const json = await response.json();
+    return json;
+}
+
+/**
+ * Delete card sticker by id.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idCard
+ * @param {string} idSticker
+ * @returns {Promise<*>}
+ */
+Trello.prototype.deleteCardSticker = async function (idCard, idSticker) {
+    let url = `${BASE_URL}/${idCard}/stickers/${idSticker}?key=${this.key}&token=${this.token}`;
+    const response = await fetch(url, {method: 'DELETE', headers: this.headers})
+    const json = await response.json();
+    return json;
+}
+
+/**
  * Update Card comment action by id.
  * @async
  * @function
@@ -644,7 +690,7 @@ Trello.prototype.getCardSticker = async function (idCard, idSticker, options) {
  * @returns {Promise<*>}
  */
 Trello.prototype.updateCardCommentAction = async function (idCard, idAction, text) {
-    let url = `${BASE_URL}/${idCard}/actions/${idAction}?key=${this.key}&token=${this.token}&text=${text}`;
+    let url = `${BASE_URL}/${idCard}/actions/${idAction}/comments?key=${this.key}&token=${this.token}&text=${text}`;
     const response = await fetch(url, {method: 'PUT', headers: this.headers})
     const json = await response.json();
     return json;
@@ -660,7 +706,7 @@ Trello.prototype.updateCardCommentAction = async function (idCard, idAction, tex
  * @returns {Promise<*>}
  */
 Trello.prototype.deleteCardComment = async function (idCard, idAction) {
-    let url = `${BASE_URL}/${idCard}/actions/${idAction}?key=${this.key}&token=${this.token}`;
+    let url = `${BASE_URL}/${idCard}/actions/${idAction}/comments?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'DELETE', headers: this.headers})
     const json = await response.json();
     return json;
@@ -676,7 +722,7 @@ Trello.prototype.deleteCardComment = async function (idCard, idAction) {
  * @returns {Promise<*>}
  */
 Trello.prototype.updateCardCustomFieldItem = async function (idCard, idCustomField) {
-    let url = `${BASE_URL}/${idCard}/customField/${idCustomField}?key=${this.key}&token=${this.token}`;
+    let url = `${BASE_URL}/${idCard}/customField/${idCustomField}/item?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'PUT', headers: this.headers})
     const json = await response.json();
     return json;
@@ -688,11 +734,10 @@ Trello.prototype.updateCardCustomFieldItem = async function (idCard, idCustomFie
  * @function
  * @memberOf Trello
  * @param {string} idCard
- * @param {string} idCustomField
  * @returns {Promise<*>}
  */
-Trello.prototype.getCardCustomFieldItem = async function (idCard, idCustomField) {
-    let url = `${BASE_URL}/${idCard}/customField/${idCustomField}?key=${this.key}&token=${this.token}`;
+Trello.prototype.getCardCustomFieldItems = async function (idCard) {
+    let url = `${BASE_URL}/${idCard}/customFieldItems?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'GET', headers: this.headers})
     const json = await response.json();
     return json;
@@ -720,7 +765,7 @@ Trello.prototype.addCardComment = async function (idCard, text) {
  * @function
  * @memberOf Trello
  * @param {string} idCard
- * @param {Object} options
+ * @param {Object} options - {value}
  * @returns {Promise<*>}
  */
 Trello.prototype.addCardLabel = async function (idCard, options) {
@@ -744,7 +789,7 @@ Trello.prototype.addCardLabel = async function (idCard, options) {
  * @function
  * @memberOf Trello
  * @param {string} idCard
- * @param {Object} options
+ * @param {Object} options - {value}
  * @returns {Promise<*>}
  */
 Trello.prototype.addCardMember = async function (idCard, options) {
@@ -770,7 +815,7 @@ Trello.prototype.addCardMember = async function (idCard, options) {
  * @memberOf Trello
  * @param {string} idCard
  * @param {string} color
- * @param {Object} options
+ * @param {Object} options - {name}
  * @returns {Promise<*>}
  */
 Trello.prototype.createCardNewLabel = async function (idCard, color, options) {
@@ -860,7 +905,7 @@ Trello.prototype.removeCardMemberVote = async function (idCard, idMember) {
  * @param {string} idCard
  * @param {string} idChecklist
  * @param {string}idCheckItem
- * @param {Object} options
+ * @param {Object} options - {pos}
  * @returns {Promise<*>}
  */
 Trello.prototype.updateCardCheckItemOnChecklist = async function (idCard, idChecklist, idCheckItem, options) {

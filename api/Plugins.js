@@ -83,7 +83,7 @@ Trello.prototype.getPluginMemberPrivacy = async function (idPlugin) {
  * @memberOf Trello
  * @param {string} idPlugin
  * @param {string} idListing
- * @param {Object} options
+ * @param {Object} options - {description, locale, overview, name}
  * @returns {Promise<*>}
  */
 Trello.prototype.updatePluginListing = async function (idPlugin, idListing, options) {
@@ -93,7 +93,7 @@ Trello.prototype.updatePluginListing = async function (idPlugin, idListing, opti
         overview: '',
         name: '',
     }
-    let url = `${BASE_URL}/${idPlugin}/listing/${idListing}?key=${this.key}&token=${this.token}`;
+    let url = `${BASE_URL}/${idPlugin}/listings/${idListing}?key=${this.key}&token=${this.token}`;
     options = Object.assign({}, Defaults, options);
     for (let key in options) {
         if (options[key] !== '') {

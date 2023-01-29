@@ -8,7 +8,7 @@ const BASE_URL = "https://api.trello.com/1/tokens";
  * @function
  * @memberOf Trello
  * @param {string} idToken
- * @param {Object} options
+ * @param {Object} options - {fields, webhooks}
  * @returns {Promise<*>}
  */
 Trello.prototype.getToken = async function (idToken, options) {
@@ -34,7 +34,7 @@ Trello.prototype.getToken = async function (idToken, options) {
  * @function
  * @memberOf Trello
  * @param {string} idToken
- * @param {Object}options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getTokenMember = async function (idToken, options) {
@@ -76,7 +76,7 @@ Trello.prototype.getTokenWebhooks = async function (idToken) {
  * @param {string} idToken
  * @param callbackURL
  * @param {string} idModel
- * @param {Object} options
+ * @param {Object} options - {description}
  * @returns {Promise<*>}
  */
 Trello.prototype.createTokenWebhook = async function (idToken, callbackURL, idModel, options) {
@@ -118,7 +118,7 @@ Trello.prototype.getWebhookBelongingToToken = async function (idToken, idWebhook
  * @memberOf Trello
  * @param {string} idToken
  * @param {string} idWebhook
- * @param {Object} options
+ * @param {Object} options - {description, callbackURL, idModel}
  * @returns {Promise<*>}
  */
 Trello.prototype.updateWebhookCreatedByToken = async function (idToken, idWebhook, options) {
@@ -164,7 +164,7 @@ Trello.prototype.deleteWebhookCreatedByToken = async function (idToken, idWebhoo
  * @returns {Promise<*>}
  */
 Trello.prototype.deleteToken = async function (idToken) {
-    const url = `${BASE_URL}/${idToken}?key=${this.key}&token=${this.token}`;
+    const url = `${BASE_URL}/${idToken}/?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'DELETE', headers: this.headers})
     const json = await response.json();
     return json;

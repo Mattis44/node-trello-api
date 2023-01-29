@@ -3,7 +3,7 @@
   "recurseDepth": 10,
   "opts": {
     "template": "node_modules/docdash",
-    "destination": "./docs/",
+    "destination": "../docs/",
     "recurse": true
   },
   "source": {

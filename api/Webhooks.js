@@ -6,7 +6,7 @@ const BASE_URL = "https://api.trello.com/1/webhooks";
  * Create webhook by id model.
  * @param {string} idModel
  * @param callbackURL
- * @param {Object} options
+ * @param {Object} options - {description, active}
  * @returns {Promise<*>}
  */
 Trello.prototype.createWebhook = async function (idModel, callbackURL, options) {
@@ -47,7 +47,7 @@ Trello.prototype.getWebhook = async function (idWebhook) {
  * @function
  * @memberOf Trello
  * @param {string} idWebhook
- * @param {Object} options
+ * @param {Object} options - {description, callbackURL, idModel, active}
  * @returns {Promise<*>}
  */
 Trello.prototype.updateWebhook = async function (idWebhook, options) {

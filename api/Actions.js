@@ -9,7 +9,7 @@ const BASE_URL = 'https://api.trello.com/1/actions';
  * @function
  * @memberOf Trello
  * @param {string} idAction - The ID of the action.
- * @param {Object} options - The options for the request.
+ * @param {Object} options - {display, entities, fields, member, member_fields, memberCreator, memberCreator_fields}
  * @returns {promise<*>}
  */
 Trello.prototype.getAction = async function (idAction, options) {
@@ -88,7 +88,7 @@ Trello.prototype.getActionSpecifiedField = async function (idAction, field) {
  * @function
  * @memberOf Trello
  * @param {string} idAction
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getActionBoard = async function (idAction, options) {
@@ -113,7 +113,7 @@ Trello.prototype.getActionBoard = async function (idAction, options) {
  * @function
  * @memberOf Trello
  * @param {string} idAction
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getActionCard = async function (idAction, options) {
@@ -138,7 +138,7 @@ Trello.prototype.getActionCard = async function (idAction, options) {
  * @function
  * @memberOf Trello
  * @param {string} idAction
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<Object>}
  */
 Trello.prototype.getActionList = async function (idAction, options) {
@@ -163,7 +163,7 @@ Trello.prototype.getActionList = async function (idAction, options) {
  * @function
  * @memberOf Trello
  * @param {string} idAction
- * @param {Object}options
+ * @param {Object}options - {fields}
  * @returns {Promise<Object>}
  */
 Trello.prototype.getActionMember = async function (idAction, options) {
@@ -188,7 +188,7 @@ Trello.prototype.getActionMember = async function (idAction, options) {
  * @function
  * @memberOf Trello
  * @param {string} idAction
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getActionMemberCreator = async function (idAction, options) {
@@ -213,7 +213,7 @@ Trello.prototype.getActionMemberCreator = async function (idAction, options) {
  * @function
  * @memberOf Trello
  * @param {string} idAction
- * @param {object} options
+ * @param {object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getActionOrganization = async function (idAction, options) {
@@ -242,7 +242,7 @@ Trello.prototype.getActionOrganization = async function (idAction, options) {
  * @returns {Promise<*>}
  */
 Trello.prototype.updateActionComment = async function (idAction, value) {
-    const url = `${BASE_URL}/${idAction}/comments?key=${this.key}&token=${this.token}`;
+    const url = `${BASE_URL}/${idAction}/text?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'PUT', headers: this.headers}, body = JSON.stringify({value: value}))
     const json = await response.json();
     return json;
@@ -254,7 +254,7 @@ Trello.prototype.updateActionComment = async function (idAction, value) {
  * @function
  * @memberOf Trello
  * @param {string} idAction
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getActionReactions = async function (idAction, options) {
@@ -279,7 +279,7 @@ Trello.prototype.getActionReactions = async function (idAction, options) {
  * @function
  * @memberOf Trello
  * @param {string} idAction
- * @param {Object} options
+ * @param {Object} options - {shortName, skinVariation, native, unified}
  * @returns {Promise<*>}
  */
 Trello.prototype.createActionReaction = async function (idAction, options) {
@@ -308,7 +308,7 @@ Trello.prototype.createActionReaction = async function (idAction, options) {
  * @memberOf Trello
  * @param {string} idAction
  * @param {string} idReaction
- * @param {Object} options
+ * @param {Object} options - {member, emoji}
  * @returns {Promise<*>}
  */
 Trello.prototype.getActionReactionsId = async function (idAction, idReaction, options) {

@@ -1,6 +1,6 @@
 {
   "name": "node-trello-api",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A fully asynchronous node module to interact with Trello API with CommonJS.",
   "main": "trello.js",
   "scripts": {

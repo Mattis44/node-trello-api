@@ -9,7 +9,7 @@ const BASE_URL = 'https://api.trello.com/1/enterprises';
  * @function
  * @memberOf Trello
  * @param {string} idEntreprise
- * @param {Object} options
+ * @param {Object} options - {display, entities, fields, member, member_fields, member_filter, member_sort, member_sortBy, member_sortOrder, member_startIndex, member_count, organizations, organization_fields, organization_paid_account, organization_memberships
  * @returns {Promise<*>}
  */
 Trello.prototype.getEnterprise = async function (idEntreprise, options) {
@@ -51,7 +51,7 @@ Trello.prototype.getEnterprise = async function (idEntreprise, options) {
  * @returns {Promise<*>}
  */
 Trello.prototype.getEnterpriseAuditlogData = async function (idEntreprise) {
-    const url = `${BASE_URL}/${idEntreprise}/auditlogData?key=${this.key}&token=${this.token}`;
+    const url = `${BASE_URL}/${idEntreprise}/auditlog?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'GET', headers: this.headers})
     const json = await response.json();
     return json;
@@ -63,7 +63,7 @@ Trello.prototype.getEnterpriseAuditlogData = async function (idEntreprise) {
  * @function
  * @memberOf Trello
  * @param {string} idEntreprise
- * @param {Object} options
+ * @param {Object} options- {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getEnterpriseAdminMembers = async function (idEntreprise, options) {
@@ -88,12 +88,12 @@ Trello.prototype.getEnterpriseAdminMembers = async function (idEntreprise, optio
  * @function
  * @memberOf Trello
  * @param {string} idEntreprise
- * @param {Object} options
+ * @param {Object} options - {returnUrl, authenticate, confirmationAccepted, tosAccepted}
  * @returns {Promise<*>}
  */
 Trello.prototype.getEnterpriseSignupUrl = async function (idEntreprise, options) {
     const Defaults = {
-        return_url: '',
+        returnUrl: '',
         authenticate: '',
         confirmationAccepted: '',
         tosAccepted: '',
@@ -116,7 +116,7 @@ Trello.prototype.getEnterpriseSignupUrl = async function (idEntreprise, options)
  * @function
  * @memberOf Trello
  * @param {string} idEntreprise
- * @param {Object} options
+ * @param {Object} options - {fields, filter, sort, sortBy, sortOrder, startIndex, count, organization_fields, board_fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getEnterpriseMembers = async function (idEntreprise, options) {
@@ -150,7 +150,7 @@ Trello.prototype.getEnterpriseMembers = async function (idEntreprise, options) {
  * @memberOf Trello
  * @param {string} idEntreprise
  * @param {string} idMember
- * @param {Object} options
+ * @param {Object} options - {fields, organization_fields, board_fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getEnterpriseMember = async function (idEntreprise, idMember, options) {
@@ -181,7 +181,7 @@ Trello.prototype.getEnterpriseMember = async function (idEntreprise, idMember, o
  * @returns {Promise<*>}
  */
 Trello.prototype.getOrganizationCanAddToEnterprise = async function (idEntreprise, idOrganization) {
-    const url = `${BASE_URL}/${idEntreprise}/transferrable/organizations/${idOrganization}?key=${this.key}&token=${this.token}`;
+    const url = `${BASE_URL}/${idEntreprise}/transferrable/organization/${idOrganization}?key=${this.key}&token=${this.token}`;
     const response = await fetch(url, {method: 'GET', headers: this.headers})
     const json = await response.json();
     return json;
@@ -204,12 +204,28 @@ Trello.prototype.getBulkOrganizationCanAddToEnterprise = async function (idEntre
 }
 
 /**
+ * Decline Enterprise Join Requests.
+ * @async
+ * @function
+ * @memberOf Trello
+ * @param {string} idEntreprise
+ * @param {Array<Organization>} idOrganizations
+ * @returns {Promise<*>}
+ */
+Trello.prototype.declineEnterpriseJoinRequests = async function (idEntreprise, idOrganizations) {
+    const url = `${BASE_URL}/${idEntreprise}/enterpriseJoinRequest/bulk?idOrganizations=${idOrganizations}?key=${this.key}&token=${this.token}`;
+    const response = await fetch(url, {method: 'DELETE', headers: this.headers})
+    const json = await response.json();
+    return json;
+}
+
+/**
  * Get Enterprise claimable organizations.
  * @async
  * @function
  * @memberOf Trello
  * @param {string} idEntreprise
- * @param {Object} options
+ * @param {Object} options - {limit, cursor, name, activeSince, inactiveSince}
  * @returns {Promise<*>}
  */
 Trello.prototype.getEnterpriseClaimableOrganizations = async function (idEntreprise, options) {
@@ -238,7 +254,7 @@ Trello.prototype.getEnterpriseClaimableOrganizations = async function (idEntrepr
  * @function
  * @memberOf Trello
  * @param {string} idEntreprise
- * @param {Object} options
+ * @param {Object} options - {activeSince, inactiveSince}
  * @returns {Promise<*>}
  */
 Trello.prototype.getEnterprisePendingOrganizations = async function (idEntreprise, options) {
@@ -264,7 +280,7 @@ Trello.prototype.getEnterprisePendingOrganizations = async function (idEntrepris
  * @function
  * @memberOf Trello
  * @param {string} idEntreprise
- * @param {Object} options
+ * @param {Object} options - {expiration}
  * @returns {Promise<*>}
  */
 Trello.prototype.createEnterpriseAuthToken = async function (idEntreprise, options) {
@@ -324,7 +340,7 @@ Trello.prototype.updateEnterpriseMemberLicensed = async function (idEntreprise, 
  * @param {string} idEntreprise
  * @param {string} idMember
  * @param {string} value
- * @param {Object} options
+ * @param {Object} options - {fields, organization_fields, board_fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.deactivateEnterpriseMember = async function (idEntreprise, idMember, value, options) {
@@ -399,7 +415,7 @@ Trello.prototype.deleteEnterpriseOrganization = async function (idEntreprise, id
  * @function
  * @memberOf Trello
  * @param {string} idEntreprise
- * @param {string} idOrganizations
+ * @param {Array<Organization>} idOrganizations
  * @returns {Promise<*>}
  */
 Trello.prototype.bulkAcceptEnterpriseOrganization = async function (idEntreprise, idOrganizations) {

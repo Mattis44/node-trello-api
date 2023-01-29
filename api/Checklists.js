@@ -7,11 +7,11 @@ const BASE_URL = 'https://api.trello.com/1/checklists';
  * @async
  * @function
  * @memberOf Trello
- * @param {string} idBoard
- * @param {Object} options
+ * @param {string} idCard
+ * @param {Object} options - {name, idChecklistSource, pos}
  * @returns {Promise<*>}
  */
-Trello.prototype.createChecklist = async function (idBoard, options) {
+Trello.prototype.createChecklist = async function (idCard, options) {
 const Defaults = {
         name: '',
         idChecklistSource: '',
@@ -35,7 +35,7 @@ const Defaults = {
  * @function
  * @memberOf Trello
  * @param {string} idChecklist
- * @param {Object} options
+ * @param {Object} options - {cards, checkItems, checkItems_fields, fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getChecklist = async function (idChecklist, options) {
@@ -63,7 +63,7 @@ Trello.prototype.getChecklist = async function (idChecklist, options) {
  * @function
  * @memberOf Trello
  * @param {string} idChecklist
- * @param {Object} options
+ * @param {Object} options - {name, pos}
  * @returns {Promise<*>}
  */
 Trello.prototype.updateChecklist = async function (idChecklist, options) {
@@ -137,7 +137,7 @@ Trello.prototype.updateChecklistField = async function (idChecklist, field, valu
  * @function
  * @memberOf Trello
  * @param {string} idChecklist
- * @param {Object} options
+ * @param {Object} options - {fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getChecklistBoard = async function (idChecklist, options) {
@@ -177,7 +177,7 @@ Trello.prototype.getChecklistCard = async function (idChecklist) {
  * @function
  * @memberOf Trello
  * @param {string} idChecklist
- * @param {Object} options
+ * @param {Object} options - {filter, fields}
  * @returns {Promise<*>}
  */
 Trello.prototype.getChecklistCheckItem = async function (idChecklist, options) {
@@ -204,7 +204,7 @@ const Defaults = {
  * @memberOf Trello
  * @param {string} idChecklist
  * @param {string} name
- * @param {Object} options
+ * @param {Object} options - {pos, checked, due, dueReminder, idMember}
  * @returns {Promise<*>}
  */
 Trello.prototype.createChecklistCheckItem = async function (idChecklist, name, options) {
