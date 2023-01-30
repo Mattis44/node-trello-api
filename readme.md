@@ -48,6 +48,9 @@ console.log(board);
 ## Documentation
 
 Official repository documentation : https://mattis44.github.io/node-trello-api/
+
+IMPORTANT : If you want to get informations about your person, you can put "me" when ID is required.
+Exemple : `Trello.getMemberBoard("me").then(boards => { console.log(boards) }`
 ### Actions
 
 Used to request the actions of a board, a card, a checklist, a list, a member, or an organization.
