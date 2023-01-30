@@ -323,7 +323,8 @@ Trello.prototype.getBoardLists = async function (boardId, options) {
  * @function
  * @memberOf Trello
  * @param {string} boardId
- * @param {Object} options - {name, pos}
+ * @param {string} name
+ * @param {Object} options - {pos}
  * @returns {Promise<*>}
  */
 Trello.prototype.createBoardList = async function (boardId, name, options) {
