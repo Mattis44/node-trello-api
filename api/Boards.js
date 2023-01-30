@@ -326,12 +326,11 @@ Trello.prototype.getBoardLists = async function (boardId, options) {
  * @param {Object} options - {name, pos}
  * @returns {Promise<*>}
  */
-Trello.prototype.createBoardList = async function (boardId, options) {
+Trello.prototype.createBoardList = async function (boardId, name, options) {
     const defaults = {
-        name: '',
         pos: null,
     }
-    let url = `${BASE_URL}/${boardId}/lists?key=${this.key}&token=${this.token}`;
+    let url = `${BASE_URL}/${boardId}/lists?key=${this.key}&token=${this.token}&name=${name}`;
     options = Object.assign({}, defaults, options);
     for (let key in options) {
         if (options[key] !== '' && options[key] !== null) {

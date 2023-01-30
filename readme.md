@@ -24,7 +24,7 @@ console.log(board);
 
 (async () => {
 	[...]
-    const res = await Trello.createBoardList(boardId, {name: "My list"})
+    const res = await Trello.createBoardList(boardId, "My list", {pos: "top"})
     resolve(res)
 })
 ```

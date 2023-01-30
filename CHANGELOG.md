@@ -1,3 +1,7 @@
+# VERSION 1.2.X - Bug fix of stable version.
+
+> - `createBoardList()` name parameters was optional and must be required
+
 # VERSION 1.2 (29/01/2023)
 
 > - Added Organization API methods.
