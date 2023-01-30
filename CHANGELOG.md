@@ -2,6 +2,8 @@
 
 > - `createBoardList()` name parameters was optional and must be required
 
+> - `createCard()` idList wasn't in the API url.
+
 # VERSION 1.2 (29/01/2023)
 
 > - Added Organization API methods.

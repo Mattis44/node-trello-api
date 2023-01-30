@@ -31,7 +31,7 @@ Trello.prototype.createCard = async function (idList, options) {
         locationName: '',
         coordinates: '',
     }
-    let url = `${BASE_URL}?key=${this.key}&token=${this.token}`;
+    let url = `${BASE_URL}?key=${this.key}&token=${this.token}&idList=${idList}`;
     options = Object.assign({}, Defaults, options);
     for (let key in options) {
         if (options[key] !== '') {
