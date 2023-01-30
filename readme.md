@@ -15,6 +15,7 @@ npm i node-trello-api
  const trelloClient = require('node-trello-api')
  const Trello = new trelloClient("API_KEY", "API_TOKEN")
 ```
+Help : Go take your API informations here : https://trello.com/app-key
 ## Exemples
 ```js
 Trello.getBoard(boardId).then(board => {
